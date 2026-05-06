@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CSS Cascade Demo</title>
+  <style>
+    /* Lowest priority */
+    p {
+      color: blue;
+    }
+
+    /* Overrides p */
+    .text {
+      color: green;
+    }
+
+    /* More specific */
+    div p {
+      color: orange;
+    }
+
+    /* Even more specific */
+    .box p {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+
+  <p>This is a normal paragraph (blue)</p>
+
+  <p class="text">This uses a class (green)</p>
+
+  <div>
+    <p>Inside a div (orange overrides blue)</p>
+  </div>
+
+  <div class="box">
+    <p>Inside .box (red overrides everything above)</p>
+  </div>
+
+  <p class="text" style="color: purple;">
+    Inline style wins (purple)
+  </p>
+
+</body>
+</html>
