@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Zoo Rescue Tracker</title>
+
+  <style>
+    body {
+      font-family: Arial;
+      background: #eef7ee;
+      margin: 0;
+    }
+
+    header {
+      background: green;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      position: sticky;
+      top: 0;
+    }
+
+    .map {
+      position: relative;
+      height: 500px;
+      margin: 20px;
+      background: white;
+      border: 3px dashed green;
+    }
+
+    .card {
+      position: absolute;
+      width: 180px;
+      padding: 10px;
+      color: white;
+      border-radius: 10px;
+    }
+
+    .lion {
+      background: orange;
+      top: 60px;
+      left: 40px;
+    }
+
+    .penguin {
+      background: dodgerblue;
+      top: 180px;
+      left: 220px;
+    }
+
+    .alert {
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+      background: crimson;
+      color: white;
+      padding: 10px;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>🐾 Zoo Rescue Tracker</h1>
+</header>
+
+<div class="map">
+
+  <div class="card lion">
+    <h3>🦁 Lion</h3>
+    <p>position: absolute</p>
+  </div>
+
+  <div class="card penguin">
+    <h3>🐧 Penguin</h3>
+    <p>Moved with top/left</p>
+  </div>
+
+</div>
+
+<div class="alert">
+  🚨 Rescue Alert
+</div>
+
+</body>
+</html>
