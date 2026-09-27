@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Movie Collection</title>
+</head>
+<body>
+
+  <h2>🎬 My Movie Collection</h2>
+  <p id="output"></p>
+
+  <script>
+    const movie = {
+      title: "Inception",
+      year: 2010,
+      director: "Christopher Nolan"
+    };
+
+    let movies = ["Inception", "Avatar", "Titanic", "Interstellar"];
+
+    let info =
+      movie.title + " - " +
+      movie.year + " - " +
+      movie.director;
+
+    let firstMovie = movies[0];
+    let secondMovie = movies[1];
+
+    let allMovies = movies.join(", ");
+
+    let removedMovie = movies.pop();
+
+    document.getElementById("output").innerHTML =
+      "Movie: " + info + "<br>" +
+      "First Movie: " + firstMovie + "<br>" +
+      "Second Movie: " + secondMovie + "<br>" +
+      "All Movies: " + allMovies + "<br>" +
+      "Removed Movie: " + removedMovie + "<br>" +
+      "After pop(): " + movies.join(", ");
+  </script>
+
+</body>
+</html>
