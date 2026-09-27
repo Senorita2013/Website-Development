@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Animal Zoo Manager</title>
+  <style>
+    body { font-family: Arial; background: #e8f5e9; padding: 20px; }
+    #zoo { display: flex; gap: 15px; flex-wrap: wrap; }
+    .zone { padding: 20px; border-radius: 10px; background: #fff3cd; }
+    button { margin: 5px; padding: 8px; cursor: pointer; }
+    #output { background: #222; color: #0f0; padding: 15px; margin-top: 20px; }
+  </style>
+</head>
+
+<body>
+
+  <h1 id="title">🦁 My Animal Zoo Manager</h1>
+
+  <div id="zoo">
+    <div class="zone">
+      <h2>🦁 Savanna</h2>
+      <p>Lion, Giraffe, Zebra</p>
+    </div>
+
+    <div class="zone">
+      <h2>🐒 Jungle</h2>
+      <p>Monkey, Tiger, Parrot</p>
+    </div>
+
+    <div class="zone">
+      <h2>🐧 Arctic</h2>
+      <p>Penguin, Polar Bear, Seal</p>
+    </div>
+  </div>
+
+  <button onclick="inspectDOM()">Explore DOM</button>
+  <button onclick="changeTitle()">Change Title</button>
+  <button onclick="changeStyle()">Change Style</button>
+
+  <pre id="output">DOM information appears here...</pre>
+
+  <script>
+    const zoo = document.getElementById("zoo");
+
+    function inspectDOM() {
+      const jungle = zoo.children[1];
+
+      output.textContent =
+        "Parent: " + jungle.parentElement.id + "\n" +
+        "Children: " + jungle.children.length + "\n" +
+        "Previous sibling: " +
+        jungle.previousElementSibling.innerText + "\n" +
+        "Next sibling: " +
+        jungle.nextElementSibling.innerText + "\n" +
+        "Node type: " + jungle.nodeType;
+    }
+
+    function changeTitle() {
+      document.getElementById("title").textContent =
+        "🌳 Welcome to My Wild Zoo!";
+    }
+
+    function changeStyle() {
+      zoo.children[1].style.background = "#a5d6a7";
+      zoo.children[1].style.color = "darkgreen";
+    }
+  </script>
+
+</body>
+</html>
