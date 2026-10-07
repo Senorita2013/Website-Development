@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Birthday Countdown</title>
+
+  <style>
+    body {
+      background-color: pink;
+      text-align: center;
+      font-family: Arial;
+    }
+
+    .box {
+      background-color: white;
+      padding: 30px;
+      margin: 100px auto;
+      width: 400px;
+      border-radius: 20px;
+    }
+
+    h1 {
+      color: purple;
+    }
+
+    #days {
+      font-size: 30px;
+      color: red;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="box">
+    <h1>🎂 Birthday Countdown 🎂</h1>
+
+    <p>My birthday is 24 December!</p>
+
+    <h2 id="days"></h2>
+    <p id="message"></p>
+    <p id="review"></p>
+  </div>
+
+  <script>
+    let today = new Date();
+    let year = today.getFullYear();
+
+    let birthday = new Date(year, 11, 24);
+
+    if (today > birthday) {
+      birthday = new Date(year + 1, 11, 24);
+    }
+
+    let difference = birthday - today;
+    let days = Math.ceil(difference / (1000 * 60 * 60 * 24));
+
+    document.getElementById("days").innerHTML =
+      days + " days to go! 🎉";
+
+    let message;
+
+    if (days <= 7) {
+      message = "My birthday is very soon! 🥳";
+    } else if (days <= 30) {
+      message = "My birthday is coming! 🎈";
+    } else {
+      message = "I still have time to get ready! 🎁";
+    }
+
+    document.getElementById("message").innerHTML = message;
+
+    let review = "Countdown Review:<br>";
+
+    for (let i = 1; i <= 5; i++) {
+      review += "⭐ Day " + i + "<br>";
+    }
+
+    document.getElementById("review").innerHTML = review;
+  </script>
+
+</body>
+</html>
