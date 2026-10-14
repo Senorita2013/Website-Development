@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Superhero Cards</title>
+  <style>
+    body {
+      background: #111827;
+      color: white;
+      font-family: Arial;
+      text-align: center;
+    }
+    input, button {
+      padding: 10px;
+      margin: 5px;
+      border-radius: 8px;
+    }
+    .card {
+      display: inline-block;
+      background: #312e81;
+      padding: 20px;
+      margin: 10px;
+      border-radius: 12px;
+    }
+  </style>
+</head>
+<body>
+  <h1>⚡ Superhero Power Cards</h1>
+
+  <input id="name" placeholder="Hero name">
+  <input id="power" placeholder="Superpower">
+  <button onclick="createHero()">Create Hero</button>
+
+  <div id="cards"></div>
+
+  <script>
+    class Superhero {
+      constructor(name, power) {
+        this.name = name;
+        this.power = power;
+      }
+
+      displayCard() {
+        const card = document.createElement("div");
+        card.className = "card";
+        card.innerHTML = `
+          <h2>${this.name}</h2>
+          <p>Power: ${this.power}</p>
+        `;
+        document.getElementById("cards").appendChild(card);
+      }
+    }
+
+    function createHero() {
+      const name = document.getElementById("name").value;
+      const power = document.getElementById("power").value;
+
+      if (!name || !power) return;
+
+      const hero = new Superhero(name, power);
+      hero.displayCard();
+
+      document.getElementById("name").value = "";
+      document.getElementById("power").value = "";
+    }
+  </script>
+</body>
+</html>
