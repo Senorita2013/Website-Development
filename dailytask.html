@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Daily Task Organiser</title>
+  <style>
+    body { font-family: Arial; background: #f0efff; padding: 30px; }
+    .box { background: white; padding: 20px; border-radius: 12px; }
+    button { margin: 5px; padding: 8px; cursor: pointer; }
+    li { margin: 12px; }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h2>Daily Task Organiser</h2>
+
+    <input id="name" placeholder="Task name">
+    <input id="time" type="time">
+    <button onclick="addTask()">Add Task</button>
+
+    <p>
+      <button onclick="sortNames()">Sort Names</button>
+      <button onclick="reverseTasks()">Reverse</button>
+      <button onclick="sortTimes()">Sort Times</button>
+    </p>
+
+    <ul id="list"></ul>
+  </div>
+
+  <script>
+    let tasks = [
+      { name: "Study", time: "09:00" },
+      { name: "Lunch", time: "13:00" },
+      { name: "Exercise", time: "17:00" }
+    ];
+
+    function display() {
+      document.getElementById("list").innerHTML =
+        tasks.map(t => {
+          let hour = Number(t.time.split(":")[0]);
+          let label = hour < 12 ? "Morning" :
+                      hour < 17 ? "Afternoon" : "Evening";
+
+          return `<li>${t.name} - ${t.time} (${label})</li>`;
+        }).join("");
+    }
+
+    function addTask() {
+      let name = document.getElementById("name").value;
+      let time = document.getElementById("time").value;
+      if (name && time) tasks.push({ name, time });
+      display();
+    }
+
+    function sortNames() {
+      tasks.sort((a, b) => a.name.localeCompare(b.name));
+      display();
+    }
+
+    function reverseTasks() {
+      tasks.reverse();
+      display();
+    }
+
+    function sortTimes() {
+      tasks.sort((a, b) => a.time.localeCompare(b.time));
+      display();
+    }
+
+    display();
+  </script>
+</body>
+</html>
