@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>School Event Viewer</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #f0f4f8;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .container {
+            background: white;
+            padding: 20px;
+            width: 350px;
+            margin: auto;
+            border-radius: 10px;
+        }
+
+        button {
+            background: blue;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+
+        #result {
+            margin-top: 20px;
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>School Event Data Viewer</h2>
+
+    <button onclick="loadEvents()">Load Event Data</button>
+
+    <p id="loading"></p>
+    <div id="result"></div>
+</div>
+
+<script>
+function loadEvents() {
+
+    document.getElementById("loading").innerHTML =
+        "Loading event data...";
+
+    document.getElementById("result").innerHTML = "";
+
+    setTimeout(function() {
+
+        let eventData = {
+            name: "School Sports Day",
+            date: "15 November 2026",
+            location: "School Playground",
+            time: "10:00 AM"
+        };
+
+        let jsonText = JSON.stringify(eventData);
+
+        let eventObject = JSON.parse(jsonText);
+
+        document.getElementById("loading").innerHTML =
+            "Data loaded successfully!";
+
+        document.getElementById("result").innerHTML =
+            "<h3>Event Details</h3>" +
+            "<p><b>Name:</b> " + eventObject.name + "</p>" +
+            "<p><b>Date:</b> " + eventObject.date + "</p>" +
+            "<p><b>Location:</b> " + eventObject.location + "</p>" +
+            "<p><b>Time:</b> " + eventObject.time + "</p>";
+
+    }, 2000);
+}
+</script>
+
+</body>
+</html>
