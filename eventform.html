@@ -1,0 +1,112 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Event Registration</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #eaf0ff;
+            display: flex;
+            justify-content: center;
+            padding: 40px;
+        }
+
+        .container {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            width: 350px;
+        }
+
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            box-sizing: border-box;
+        }
+
+        button {
+            background: blue;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .error { color: red; }
+        #pass { color: green; margin-top: 15px; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>Student Event Registration</h2>
+
+    <form id="form">
+        <input id="name" placeholder="Full Name">
+        <input id="email" placeholder="Email Address">
+        <input id="studentId" placeholder="Student ID">
+        <input id="course" placeholder="Course">
+
+        <select id="level">
+            <option value="">Select Academic Level</option>
+            <option>Year 1</option>
+            <option>Year 2</option>
+            <option>Year 3</option>
+            <option>Year 4</option>
+        </select>
+
+        <p class="error" id="error"></p>
+        <button type="submit">Register</button>
+    </form>
+
+    <p id="loading"></p>
+    <div id="pass"></div>
+</div>
+<script>
+document.getElementById("form").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    let name = document.getElementById("name").value.trim();
+    let email = document.getElementById("email").value.trim();
+    let id = document.getElementById("studentId").value.trim();
+    let course = document.getElementById("course").value.trim();
+    let level = document.getElementById("level").value;
+
+    let error = document.getElementById("error");
+    let pass = document.getElementById("pass");
+
+    error.textContent = "";
+    pass.textContent = "";
+
+    if (name.length < 3 || !email.includes("@") ||
+        id.length < 4 || !course || !level) {
+        error.textContent = "Please enter valid details in all fields.";
+        return;
+    }
+
+    document.getElementById("loading").textContent =
+        "Processing registration...";
+
+    setTimeout(function() {
+        let number = Math.floor(100000 + Math.random() * 900000);
+
+        document.getElementById("loading").textContent = "";
+        pass.innerHTML = `
+            <h3>Registration Successful!</h3>
+            <p>Name: ${escapeHTML(name)}</p>
+            <p>Event Pass: EVT-${number}</p>
+        `;
+
+        document.getElementById("form").reset();
+    }, 2000);
+});
+
+function escapeHTML(value) {
+    return value.replace(/[&<>"']/g, char => ({
+        '&': '&amp;', '<': '&lt;', '>': '&gt;',
+        '"': '&quot;', "'": '&#39;'
+    })[char]);
+}
+</script>
+</body>
+</html>
