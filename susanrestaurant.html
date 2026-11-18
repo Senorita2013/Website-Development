@@ -1,0 +1,112 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Susan's Website</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f8f3ed;
+      color: #634a43;
+    }
+
+    nav {
+      background: white;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #755a50;
+      margin-left: 15px;
+    }
+
+    .banner {
+      text-align: center;
+      padding: 70px 20px;
+      background: #e9ddd4;
+    }
+
+    .banner img {
+      width: 80%;
+      max-width: 700px;
+      border-radius: 15px;
+    }
+
+    button {
+      background: #a77d70;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 25px;
+      cursor: pointer;
+    }
+
+    section {
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    footer {
+      background: #e9ddd4;
+      padding: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <h2>Susan.</h2>
+
+    <div>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <div class="banner" id="home">
+    <h1>Hello, I'm Susan!</h1>
+    <p>Welcome to my little corner of the internet.</p>
+
+    <img
+      src="banner.jpg"
+      alt="Beautiful welcome banner">
+
+    <br><br>
+    <button onclick="location.href='#about'">
+      Discover More
+    </button>
+  </div>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>Welcome! Find out more about me here.</p>
+  </section>
+
+  <section id="services">
+    <h2>My Services</h2>
+    <p>Discover what I have to offer.</p>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <p>I'd love to hear from you!</p>
+  </section>
+
+  <footer>
+    <p>© 2026 Susan's Website</p>
+  </footer>
+
+</body>
+</html>
